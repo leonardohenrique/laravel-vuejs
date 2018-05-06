@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Album;
 
 class AlbumController extends Controller
 {
@@ -14,7 +15,9 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        //
+        $albums = Album::paginate(20);
+
+        return response()->json($albums);
     }
 
     /**
