@@ -15,7 +15,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('paginate', require('vuejs-paginate'));
+Vue.component('albums', require('./components/AlbumsComponent.vue'));
 
 const app = new Vue({
     el: '#app'
