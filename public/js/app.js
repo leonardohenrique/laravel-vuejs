@@ -47344,6 +47344,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47367,9 +47380,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get(this.endpoint + '?page=' + page).then(function (_ref) {
                 var data = _ref.data;
 
-                console.info(data);
                 _this.albums = data.data;
-                _this.pageCount = data.meta.last_page;
+                _this.pageCount = data.last_page;
             });
         }
     }
@@ -47383,26 +47395,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h1", [_vm._v("Albums")]),
-    _vm._v(" "),
-    _c("table", { staticClass: "table table-striped table-bordered" }, [
-      _vm._m(0),
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h1", [_vm._v("Albums")]),
       _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.albums, function(album) {
-          return _c("tr", [
-            _c("td", [_vm._v(_vm._s(album.id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(album.artist))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(album.title))])
-          ])
-        })
-      )
-    ])
-  ])
+      _c("table", { staticClass: "table table-striped table-bordered" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.albums, function(album) {
+            return _c("tr", [
+              _c("td", [_vm._v(_vm._s(album.id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(album.artist))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(album.title))])
+            ])
+          })
+        )
+      ]),
+      _vm._v(" "),
+      _c("paginate", {
+        attrs: {
+          "page-count": _vm.pageCount,
+          "click-handler": _vm.fetch,
+          "prev-text": "Previous",
+          "next-text": "Next",
+          "container-class": "pagination",
+          "page-class": "page-item",
+          "page-link-class": "page-link",
+          "next-link-class": "page-link",
+          "prev-link-class": "page-link"
+        }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

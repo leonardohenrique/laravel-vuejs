@@ -18,6 +18,19 @@
                 </tr>
             </tbody>
         </table>
+    
+        <paginate
+            :page-count="pageCount"
+            :click-handler="fetch"
+            :prev-text="'Previous'"
+            :next-text="'Next'"
+            :container-class="'pagination'"
+            :page-class="'page-item'"
+            :page-link-class="'page-link'"
+            :next-link-class="'page-link'"
+            :prev-link-class="'page-link'">
+        </paginate>
+
     </div>
 </template>
 
@@ -39,9 +52,8 @@
             fetch(page = 1) {
                 axios.get(this.endpoint + '?page=' + page)
                     .then(({data}) => {
-                        console.info(data);
                         this.albums = data.data;
-                        this.pageCount = data.meta.last_page;
+                        this.pageCount = data.last_page;
                     });
             },
         }        
