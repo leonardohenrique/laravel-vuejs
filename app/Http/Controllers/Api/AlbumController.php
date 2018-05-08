@@ -38,7 +38,14 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate($request, [
+            'artist' => 'required',
+            'title' => 'required',
+        ]);
+
+        $album = Album::create($data);
+
+        return response()->json($album);
     }
 
     /**

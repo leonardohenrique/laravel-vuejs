@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h1>Albums</h1>
-
+        
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
@@ -31,6 +31,8 @@
             :prev-link-class="'page-link'">
         </paginate>
 
+        <a href="/albums/create" class="btn btn-primary">Create a new Album</a>
+
     </div>
 </template>
 
@@ -40,7 +42,7 @@
             return {
                 albums: [],
                 pageCount: 1,
-                endpoint: 'api/albums'
+                endpoint: '/api/albums'
             };
         },
 

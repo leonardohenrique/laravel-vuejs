@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/albums', 'AlbumController@index');
+Route::get('/albums/create', 'AlbumController@create');

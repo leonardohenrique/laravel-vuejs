@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('paginate', require('vuejs-paginate'));
 Vue.component('albums', require('./components/AlbumsComponent.vue'));
+Vue.component('album', require('./components/AlbumComponent.vue'));
 
 const app = new Vue({
     el: '#app'
